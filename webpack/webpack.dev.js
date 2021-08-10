@@ -1,4 +1,3 @@
-const { HotModuleReplacementPlugin } = require("webpack");
 const { merge }                      = require("webpack-merge");
 const common                         = require("./webpack.common");
 
@@ -7,20 +6,16 @@ const devConfig =
 {
     mode      : "development",
     target    : "web",
-    // devtool   : "eval-source-map",
-    devtool : "source-map",
+    devtool   : "eval-source-map",
+    // devtool : "source-map",
 
     devServer : 
     {
         port        : 3000,
         contentBase : "../dist",
         open        : "chrome",
-        hot         : true,
+        hot         : false,
     },
-    plugins : 
-    [
-        new HotModuleReplacementPlugin(),
-    ],
 };
 
 module.exports = merge(common, devConfig);

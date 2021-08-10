@@ -8,7 +8,8 @@ module.exports =
 {
     entry: 
     {
-        main: './app/src/index.js'
+        main    : './app/src/index.js',
+        favIcon : '/app/src/js/favIcon.js',
     },
     output:
     {
@@ -74,6 +75,7 @@ module.exports =
         (
             {
                 template : './app/public/index.html',
+                // favicon  : './app/src/images/favicon-32x32.png'
             }
         ),
 
