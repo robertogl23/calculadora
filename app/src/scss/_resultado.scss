@@ -1,0 +1,32 @@
+.resultado{
+    border: 1px solid firebrick;
+    display: flex;
+    .desc{
+        width: 50%;
+        color: var(--DarkGrayishCyan);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label{
+        color: var(--White);
+        display: block;
+
+    }
+    .display-resultado{
+        display: flex;
+        width: 50%;
+        flex-direction: row;
+        justify-content: flex-end;
+        .diplay-text{
+            color: var(--cyan);
+            font-size: 48px;
+            font-weight: 900;
+        }
+        .icon-dollar{
+            fill: firebrick;
+            width: 13px;
+        }
+    }
+    
+}

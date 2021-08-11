@@ -1,3 +1,6 @@
-body{
-    color: chocolate;
-}
+@import './variables';
+@import './globals';
+@import './card';
+@import './grid-opciones';
+@import './inputs';
+@import './resultado';

@@ -1,0 +1,25 @@
+.container-input-bill{
+    display: flex;
+    background: var(--LightGrayishcyan);
+    width: 100%;
+    border-radius: .3rem;
+    // margin-top: .5rem;
+    .image-dollar{
+        width: 15%;
+    }
+    .input-bill{
+        padding: .5rem;
+        background: var(--LightGrayishcyan);
+        color: var(--DarkGrayishCyan);
+        border-radius: .3rem;
+        font-size: 22px;
+        font-weight: 700;
+        border: none;
+        text-align: end;
+        width: 85%;
+        font-family: 'Space Mono', monospace;
+        &:focus{
+            outline: none;
+        }
+    }
+}
