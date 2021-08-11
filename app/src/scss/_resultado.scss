@@ -1,5 +1,5 @@
 .resultado{
-    border: 1px solid firebrick;
+    // border: 1px solid firebrick;
     display: flex;
     .desc{
         width: 50%;
@@ -13,6 +13,7 @@
         display: block;
 
     }
+    
     .display-resultado{
         display: flex;
         width: 50%;
@@ -20,13 +21,30 @@
         justify-content: flex-end;
         .diplay-text{
             color: var(--cyan);
-            font-size: 48px;
+            font-size: 3rem;
             font-weight: 900;
         }
         .icon-dollar{
-            fill: firebrick;
-            width: 13px;
+            width:1.5rem;
         }
     }
     
+}
+.container-btn-reset{
+    // border: 1px solid firebrick;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    button{
+        width: 100%;
+        height: 2.5rem;
+        border: none;
+        background:var(--cyan);
+        font-weight: 800;
+        border-radius: .5rem;
+        color: var(--VeryDarkCyan);
+        // padding: .5rem;
+    }
 }
