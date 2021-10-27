@@ -21,7 +21,15 @@
                     <div name="icon" type="dollar" class="image-dollar center" id="dollar">
 
                     </div>
-                    <input value="0" class="input-bill" type="text" name="input-bill" id="input-bill">
+                    <input 
+                        placeholder="0" 
+                        class="input-bill" 
+                        type="number" 
+                        min="0"
+                        step=".01"
+                        inputmode="decimal"
+                        autofocus
+                        id="bill">
 
                 </div>
             </div>
@@ -30,12 +38,44 @@
                     <label for="">Select Tip %</label>
                 </div>
                 <div class="grid-opciones">
-                    <div class="box-o center"><span>5%</span></div>
-                    <div class="box-o center"><span>10%</span></div>
-                    <div class="box-d center"><span>15%</span></div>
-                    <div class="box-o center"><span>25%</span></div>
-                    <div class="box-o center"><span>50$</span></div>
-                    <div class="box-c center"><span>Custom</span></div>
+                    <div 
+                        class="box-o center" 
+                        id="btnPorcentaje"
+                        name="5" >
+                        <span>5%</span>
+                    </div>
+                    <div 
+                        class="box-o center" 
+                        id="btnPorcentaje"
+                        name="10">
+                        <span>10%</span>
+                    </div>
+                    <div 
+                        class="box-d center" 
+                        id="btnPorcentaje"
+                        name="15">
+                        <span>15%</span>
+                    </div>
+                    <div 
+                        class="box-o center" 
+                        id="btnPorcentaje"
+                        name="25">
+                        <span>25%</span>
+                    </div>
+                    <div 
+                        class="box-o center" 
+                        id="btnPorcentaje"
+                        name="50">
+                        <span>50$</span>
+                    </div>
+                    <div class="box-c center">
+                        <input 
+                            type="number" 
+                            id="custom"
+                            placeholder="Custom" 
+                            min="1"
+                            class="input-custom">
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -44,7 +84,11 @@
                     <div name="icon" type="person" class="image-dollar center" id="person">
 
                     </div>
-                    <input value="0" class="input-bill" type="text" name="numberPeople" id="numberPeople">
+                    <input 
+                        placeholder="1" 
+                        class="input-bill" 
+                        type="number" 
+                        id="numberPeople">
                 </div>
             </div>
         </div>
@@ -62,7 +106,7 @@
 
                         </div>
                         <div class="display center">
-                            <span class="diplay-text">0.00</span>
+                            <span id="propinaPersona" class="diplay-text">0.00</span>
                         </div>
                     </div>
                 </div>
@@ -78,12 +122,12 @@
 
                         </div>
                         <div class="display center">
-                            <span class="diplay-text">0.00</span>
+                            <span id="totalPersona" class="diplay-text">0.00</span>
                         </div>
                     </div>
                 </div>
                 <div class="container-btn-reset">
-                    <button> RESET</button>
+                    <button id="btnReset"> RESET</button>
                 </div>
             </div>
         </div>
