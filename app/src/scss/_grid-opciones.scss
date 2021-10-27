@@ -14,6 +14,9 @@
         background: var(--VeryDarkCyan);
         color: var(--White);
         border-radius: .5rem;
+        &:hover{
+            cursor: pointer;
+        }
     }
     .box-c{
         color: var(--VeryDarkCyan);
@@ -21,6 +24,9 @@
         font-weight: 800;
         border-radius: .5rem;
         height: 2.8rem;
+        &:hover{
+            cursor: pointer;
+        }
     }
     .box-d{
         color: var(--VeryDarkCyan);
@@ -28,5 +34,9 @@
         font-weight: 800;
         border-radius: .5rem;
         height: 2.8rem;
+        &:hover{
+            cursor: pointer;
+        }
     }
+    
 }
