@@ -15,9 +15,10 @@ const calcularPorcentaje = (cantidad,porcentaje) => Math.floor(cantidad*porcenta
 
 const establecerValores = ({cantidad,monto,porcentaje}) => {
     
-    monto      && ( resultados = {...resultados, montoTotal             : monto      } )
-    porcentaje && ( resultados = {...resultados, porcentajeSeleccionado : porcentaje } )
-    cantidad   && ( resultados = {...resultados, cantidadPersonas       : cantidad   } )
+    monto      && ( resultados = {...resultados, montoTotal             : monto      },$('#btnReset').removeAttribute('disabled') )
+    cantidad   && ( resultados = {...resultados, cantidadPersonas       : cantidad   },$('#btnReset').removeAttribute('disabled') )
+    porcentaje && ( resultados = {...resultados, porcentajeSeleccionado : porcentaje },$('#btnReset').removeAttribute('disabled'),seleccionarPorcentaje(porcentaje ) )
+
 
     const {cantidadPersonas,montoTotal,porcentajeSeleccionado} = resultados;
 
@@ -25,7 +26,6 @@ const establecerValores = ({cantidad,monto,porcentaje}) => {
         console.log('falta valores')
         return 
     }
-
     const montoFinal           = montoTotal + calcularPorcentaje(montoTotal,porcentajeSeleccionado);
     const montoTotalPorPersona = montoFinal / cantidadPersonas;
     const propina              = calcularPorcentaje(montoTotal,porcentajeSeleccionado) / cantidadPersonas;
@@ -43,7 +43,34 @@ const establecerValores = ({cantidad,monto,porcentaje}) => {
     
 }
 
-$('#btnReset').addEventListener('click',() => console.log(calcularPorcentaje(100,5)))
+const seleccionarPorcentaje = (porcentaje) => {
+    $$('#btnPorcentaje').forEach(element => {
+        element.classList.remove('selected')
+        if ( element.getAttribute('name') == porcentaje) {
+            element.classList.add('selected')
+        }
+    })
+}
+
+const resetResultados = () => {
+    
+    resultados = {
+        cantidadPersonas       : 0,
+        montoTotal             : 0,
+        porcentajeSeleccionado : 0,
+        propinaPorPersona      : 0,
+        totalPorPersona        : 0
+    }
+    $('#propinaPersona').innerText = resultados.propinaPorPersona;
+    $('#totalPersona').innerText = resultados.totalPorPersona;
+    $('#bill').value = '';
+    $('#numberPeople').value = '';
+    seleccionarPorcentaje(resultados.porcentajeSeleccionado)
+    $('#btnReset').setAttribute('disabled',true)
+    
+}
+
+$('#btnReset').addEventListener('click',resetResultados)
 
 // Poncentaje de propina
 $$('#btnPorcentaje')?.forEach((element) => {
