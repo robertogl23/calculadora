@@ -34,7 +34,7 @@ const ObtenerIconPorTipo = (type,id) => {
 }
 Array.from( document.getElementsByName( "icon" ) )?.map( ( icon ) => 
 {
-    icon.getAttribute("type") != null && ObtenerIconPorTipo(icon.getAttribute("type"),icon.id)
+    icon.getAttribute( "type" ) != null && ObtenerIconPorTipo( icon.getAttribute( "type" ), icon.id )
 
 })
     
