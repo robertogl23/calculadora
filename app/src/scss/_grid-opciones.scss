@@ -3,6 +3,10 @@
     grid-template-columns: repeat(3,1fr);
     grid-gap: 1rem;
     height: auto;
+    @include mobile {
+        grid-template-columns: repeat(2,1fr);
+    }
+
     span{
         font-size: 24px;
         font-weight: 800;
@@ -15,7 +19,12 @@
         color: var(--White);
         border-radius: .5rem;
         &:hover{
+            transition-duration: 200ms;
             cursor: pointer;
+            background: var(--LightGrayishCyan);
+            color: var(----VeryDarkCyan);
+            // opacity: 0.2;
+
         }
     }
 
