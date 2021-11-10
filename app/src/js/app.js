@@ -1,5 +1,5 @@
 
-const $ = (selector, context = document) => context.querySelector(selector);
+export const $ = (selector, context = document) => context.querySelector(selector);
 
 const $$ = (selector, context = document) => context.querySelectorAll(selector);
 
@@ -14,10 +14,9 @@ let resultados = {
 const calcularPorcentaje = (cantidad,porcentaje) => Math.floor(cantidad*porcentaje)/100;
 
 const establecerValores = ({cantidad,monto,porcentaje}) => {
-    
-    monto      && ( resultados = {...resultados, montoTotal             : monto      },$('#btnReset').removeAttribute('disabled') )
-    cantidad   && ( resultados = {...resultados, cantidadPersonas       : cantidad   },$('#btnReset').removeAttribute('disabled') )
-    porcentaje && ( resultados = {...resultados, porcentajeSeleccionado : porcentaje },$('#btnReset').removeAttribute('disabled'),seleccionarPorcentaje(porcentaje ) )
+    monto      && ( resultados = {...resultados, montoTotal             : monto      } )
+    cantidad   && ( resultados = {...resultados, cantidadPersonas       : cantidad   } )
+    porcentaje && ( resultados = {...resultados, porcentajeSeleccionado : porcentaje },seleccionarPorcentaje(porcentaje ) )
 
 
     const {cantidadPersonas,montoTotal,porcentajeSeleccionado} = resultados;
@@ -38,6 +37,7 @@ const establecerValores = ({cantidad,monto,porcentaje}) => {
 
     $('#propinaPersona').innerText = resultados.propinaPorPersona;
     $('#totalPersona').innerText = resultados.totalPorPersona;
+    $('#btnReset').removeAttribute('disabled');
 
     console.log(resultados)
     
@@ -79,12 +79,42 @@ $$('#btnPorcentaje')?.forEach((element) => {
     }))
 });
 
+const elements = [
+    $('#bill'),
+    $('#dollar')
+]
+elements.forEach( elemento => {
+    elemento.addEventListener('focus',(e) => {
+        $('#inputContainer').classList.add('border')
+    
+    });
+})
+
 // Monto total
 $('#bill').addEventListener('change',(e) => establecerValores({
     monto : parseInt(e.target.value) || 0,
-}))
+}));
+
+$('#bill').addEventListener('blur',(e) => {
+    $('#inputContainer').classList.remove('border')
+});
+// $('#bill').addEventListener('focus',(e) => {
+//     $('#inputContainer').classList.add('border')
+
+// });
+
+$('#dollar').addEventListener('blur',(e) => {
+    $('#inputContainer').classList.remove('border')
+});
+
+$('#dollar').addEventListener('click',(e) => {
+    console.log(e)
+    $('#inputContainer').classList.add('border')
+});
 
 // Cantidad personas
 $('#numberPeople').addEventListener('change',(e) => establecerValores({
     cantidad : parseInt(e.target.value) || 0,
-}))
+}));
+
+console.log($('#dollar'))
