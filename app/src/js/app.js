@@ -95,6 +95,10 @@ $('#bill').addEventListener('change',(e) => establecerValores({
     monto : parseInt(e.target.value) || 0,
 }));
 
+$('#custom').addEventListener('change',(e) => establecerValores({
+    porcentaje : parseInt(e.target.value) || 0,
+}));
+
 $('#bill').addEventListener('blur',(e) => {
     $('#inputContainer').classList.remove('border')
 });
